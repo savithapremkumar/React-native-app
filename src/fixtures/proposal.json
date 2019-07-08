@@ -1,0 +1,201 @@
+  [
+      {
+        "id": 1,
+        "title": "Step 1",
+        "content": [
+          {
+            "fieldID": 1,
+            "fieldName": "Applicant Status",
+            "fieldType": "Picker",
+            "fieldValue": null,
+            "stepID": 1
+          },
+          {
+            "fieldID": 2,
+            "fieldName": "Applicant Name",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 1
+
+          },
+          {
+            "fieldID": 3,
+            "fieldName": "Applicant CSC Card Number",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 1
+
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Step 2",
+        "content": [
+          {
+            "fieldID": 1,
+            "fieldName": "Applicant Status",
+            "fieldType": "Picker",
+            "fieldValue": null,
+            "stepID": 2
+
+          },
+          {
+            "fieldID": 2,
+            "fieldName": "Applicant Gender",
+            "fieldItems": [
+              {
+                "label": "Male",
+                "value": "male"
+              },
+              {
+                "label": "Female",
+                "value": "female"
+              }
+            ],
+            "fieldValue": null,
+            "fieldType": "Radio",
+            "stepID": 2
+
+          },
+          {
+            "fieldID": 3,
+            "fieldName": "Applicant CSC Card Number",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 2
+
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Step 3",
+        "content": [
+          {
+            "fieldID": 1,
+            "fieldName": "Applicant Status",
+            "fieldType": "Picker",
+            "fieldValue": null,
+            "stepID": 3
+
+          },
+          {
+            "fieldID": 2,
+            "fieldName": "Applicant Name",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 3
+
+          },
+          {
+            "fieldID": 3,
+            "fieldName": "Applicant CSC Card Number",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 3
+
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Step 4",
+        "content": [
+          {
+            "fieldID": 1,
+            "fieldName": "Applicant DOB",
+            "fieldType": "Datepicker",
+            "fieldValue": null,
+            "stepID": 4
+
+          },
+          {
+            "fieldID": 2,
+            "fieldName": "Applicant Name",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 4
+          },
+          {
+            "fieldID": 3,
+            "fieldName": "Applicant CSC Card Number",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 4
+
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Step 5",
+        "content": [
+          {
+            "fieldID": 1,
+            "fieldName": "Applicant DOB",
+            "fieldType": "Datepicker",
+            "fieldValue": null,
+            "stepID": 5
+
+          },
+          {
+            "fieldID": 2,
+            "fieldName": "Applicant Name",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 5
+
+          },
+          {
+            "fieldID": 3,
+            "fieldName": "Applicant CSC Card Number",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 5
+
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Step 6",
+        "content": [
+          {
+            "fieldID": 1,
+            "fieldName": "Applicant DOB",
+            "fieldType": "Datepicker",
+            "fieldValue": null,
+            "stepID": 6
+
+          },
+          {
+            "fieldID": 2,
+            "fieldName": "Applicant Name",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 6
+
+          },
+          {
+            "fieldID": 3,
+            "fieldName": "Applicant CSC Card Number",
+            "fieldType": "Text",
+            "fieldValue": null,
+            "stepID": 6
+
+          },
+          {
+            "fieldID": 4,
+            "fieldName" : "Applicant status",
+            "fieldType" : "Checkbox",
+            "fieldValue" : "checked",
+            "stepID": 6
+
+          }
+        ]
+      }
+    ]
+   
+
+  
