@@ -10,8 +10,8 @@ Sample mobile app
 			React native tools -run react native commands from vscode <br>
 			Babel Javascript - for proper styling <br>
 
-4.Clone this repo to your machine
-5.Run npm install inside the /Src/Mobile directory
-6.Run the app by using react-native run-android on Windows while ensuring an appropriate android device is open and running on the emulator (or) react-native run-ios on Mac
+4.Clone this repo to your machine<br>
+5.Run npm install inside the /Src/Mobile directory<br>
+6.Run the app by using react-native run-android on Windows while ensuring an appropriate android device is open and running on the emulator (or) react-native run-ios on Mac<br>
 
 TIP : Use npm start -- --reset-cache command when you are in the development mode and your app doesn't reload with your changes
