@@ -5,10 +5,10 @@ Sample mobile app
 2. You will also need to install Android studio for Android apps on windows.
 3. Download , install and setup visual studio code by installing the following plugins :<br>
 
-ESLINT - to check code for errors <br>
-Prettier - format code <br>
-React native tools -run react native commands from vscode <br>
-Babel Javascript - for proper styling <br>
+			ESLINT - to check code for errors <br>
+			Prettier - format code <br>
+			React native tools -run react native commands from vscode <br>
+			Babel Javascript - for proper styling <br>
 
 4.Clone this repo to your machine
 5.Run npm install inside the /Src/Mobile directory
