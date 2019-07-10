@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styles from "../styles/containers/Proposal/proposal";
+import update from "immutability-helper";
+
 import {
   Button,
   Icon,
@@ -29,59 +31,45 @@ export default class ProposalStep extends Component {
   constructor(props) {
     console.log("inside proposal step");
     super(props);
-    console.log("hello i am props", props.proposalInfo);
     this.state = {
       proposalSteps: props.proposalInfo
     };
-    console.log("hello i am state", this.state.proposalSteps);
   }
 
-  updateItem(id, fieldid,value) {
-    console.log("update item called")
-    var index = this.state.proposalSteps.findIndex(x=> x.id === id);
-    if (index === -1){
-            //handle error
-    }
-    else{
-      let itemAttributes = Object.assign({}, this.state.proposalSteps[index].content[fieldid], {'fieldValue':value});
-      console.log(itemAttributes);
+  updateItem = (id, fieldid, value) => {
+    console.log("update item called");
+    const stepIndex = id - 1;
+    const fieldIndex = fieldid - 1;
+    var index = this.state.proposalSteps.findIndex(x => x.id === id);
+    if (index === -1) {
+      console.log("index", index, stepIndex, fieldIndex);
+      //handle error
+    } else {
+      const proposalSteps = this.state.proposalSteps;
+      const updatedProposal = update(proposalSteps, {
+        [stepIndex]: {
+          content: { [fieldIndex]: { fieldValue: { $set: value } } }
+        }
+      });
+      console.log("newcollection", updatedProposal);
       this.setState({
-        proposalSteps: [
-           ...this.state.proposalSteps.slice(0,index),
-           Object.assign({}, this.state.proposalSteps[index], value),
-           ...this.state.proposalSteps.slice(index+1)
-        ]
+        proposalSteps: updatedProposal
       });
 
-      console.log('update item end',this.state.proposalSteps)
-
+      console.log("update item end", this.state.proposalSteps);
     }
-      
-  }
+  };
 
-  onFieldChange = (value, stepid, fieldid) => {
+  onFieldChange = (value, stepid, fieldid, selectedVal) => {
     console.log(
       "thambi tea innum varala",
       value,
       stepid,
       fieldid,
+      selectedVal,
       this.state.proposalSteps
     );
-    this.updateItem(stepid,fieldid, value)
-    // let updatedProposal = this.state.proposalSteps.slice();
-    // console.log("upd proposal", updatedProposal, value);
-    // updatedProposal[0].content[0].fieldName = "koko";
-    // console.log(
-    //   "upd proposal set value",
-    //   updatedProposal[0].content[0].fieldName
-    // );
-    // this.setState({
-    //   proposalSteps: {
-    //     updatedProposal
-    //   }
-    // });
-    // console.log("state", this.state.proposalSteps);
-    //this.props.submitProposal(this.props.userID, updatedProposal)
+    this.updateItem(stepid, fieldid, value);
   };
 
   onProposalSubmit = () => {
@@ -90,9 +78,8 @@ export default class ProposalStep extends Component {
   };
 
   render() {
-    console.log(this.state.proposalSteps);
-
     const steps = () => {
+      console.log("inside render", this.state.proposalSteps);
       let tabs;
       tabs = this.state.proposalSteps.map(stepInfo => (
         <Tab
@@ -112,14 +99,15 @@ export default class ProposalStep extends Component {
       return tabs;
     };
     const generateProposalCards = data => {
-      console.log("inside generate proposal cards");
+      console.log("inside generate proposal cards", data);
       let cards;
-      cards = (
-        <View>
+      let deckSwiper = "";
+      if (data) {
+        deckSwiper = (
           <View>
             <DeckSwiper
               ref={c => (this._deckSwiper = c)}
-              dataSource={data}
+              dataSource={data} 
               renderEmpty={() => (
                 <View style={{ alignSelf: "center" }}>
                   <Text>Over</Text>
@@ -144,6 +132,11 @@ export default class ProposalStep extends Component {
               )}
             />
           </View>
+        );
+      }
+      cards = (
+        <View>
+          {deckSwiper}
           <View
             style={{
               flexDirection: "row",
@@ -179,7 +172,13 @@ export default class ProposalStep extends Component {
       return cards;
     };
     const generateField = item => {
-      console.log("inside generate field", item.stepID);
+      console.log(
+        "inside generate field",
+        item.stepID,
+        item.fieldType,
+        item.fieldValue,
+        item.stepID
+      );
       switch (item.fieldType) {
         case "Text":
           // let updatedTextField = this.state.textField.slice();
@@ -209,7 +208,12 @@ export default class ProposalStep extends Component {
                 placeholderIconColor="#007aff"
                 selectedValue={item.fieldValue}
                 onValueChange={value =>
-                  this.onFieldChange(value, item.stepID, item.fieldID)
+                  this.onFieldChange(
+                    value,
+                    item.stepID,
+                    item.fieldID,
+                    this.selectedValue
+                  )
                 }
               >
                 <Picker.Item label="Individual" value="key0" />
